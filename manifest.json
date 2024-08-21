@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "Website Summarizer",
+  "version": "1.0",
+  "description": "A Chrome extension that summarizes the content of a webpage using the OpenAI API.",
+  "permissions": [
+    "activeTab",
+    "storage"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "warcat.png"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ]
+}
