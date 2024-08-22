@@ -2,6 +2,7 @@ const display = document.getElementById("summary");
 const button = document.getElementById("summarize-button");
 
 button.addEventListener("click", () => {
+  display.innerText = "Loading...";
   chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
     chrome.tabs.sendMessage(tabs[0].id, { action: "extractText" }, (response) => {
       if (chrome.runtime.lastError) {
